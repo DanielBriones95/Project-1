@@ -1,16 +1,20 @@
 import React from 'react';
-import {BrowserRouter as Router, Route } from 'react-router-dom';
+import {BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 
 import Users from './user/pages/Users';
 
-function App() {
-  return
+const App = () => {
+  return (
     <Router>
-      <Route path="/">
-        <Users/>
-      </Route>
-    </Router>;
+      <Routes>
+        <Route path="/" element={<Users/>}></Route>
+        
+        
+      </Routes>
+      <Navigate to="/" />
+    </Router>
 
-};
+  )
+}
 
 export default App;
