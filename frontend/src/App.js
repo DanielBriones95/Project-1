@@ -20,6 +20,18 @@ const App = () => {
     setIsLoggedIn(false);
   }, []);
 
+  let routes;
+  if(isLoggedIn){
+    routes = ();
+  }else {
+    routes = (
+      <React.Fragment>
+        <Route path="/" element={<Users/>}></Route>
+        <Route path="/:userId/places" element={<UserPlaces/>}></Route>
+      </React.Fragment>
+
+    );
+  }
 
   return (
     <AuthContext.Provider
@@ -29,8 +41,7 @@ const App = () => {
         <MainNavigation/>
         <main>
           <Routes>
-            <Route path="/" element={<Users/>}></Route>
-            <Route path="/:userId/places" element={<UserPlaces/>}></Route>
+
             <Route path="/places/new" element={<NewPlaces/>}></Route>
             <Route path='/places/:placeId' element={<UpdatePlaces/>}></Route>
             <Route path='/auth' element={<Auth/>}></Route>
